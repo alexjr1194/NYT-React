@@ -1,16 +1,24 @@
 {
-  "name": "nyt-react",
-  "version": "0.1.0",
+  "name": "NYT-React",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "npm run build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/alexjr1194/NYT-React.git",
+  "author": "alexjr1194 <alexjr1194@me.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
   }
 }
